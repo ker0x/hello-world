@@ -12,7 +12,7 @@ class HelloWorld
     /**
      * Path to the resources folder.
      */
-    public const RESOURCES_PATH = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'resources';
+    public const RESOURCES_PATH = __DIR__ . \DIRECTORY_SEPARATOR . '..' . \DIRECTORY_SEPARATOR . 'resources';
 
     /**
      * Name of the translations folder.
@@ -67,7 +67,7 @@ class HelloWorld
 
     private function loadTranslations(): void
     {
-        $path = self::RESOURCES_PATH . DIRECTORY_SEPARATOR . self::TRANSLATIONS_DIRNAME . DIRECTORY_SEPARATOR . self::TRANSLATIONS_FILENAME;
+        $path = self::RESOURCES_PATH . \DIRECTORY_SEPARATOR . self::TRANSLATIONS_DIRNAME . \DIRECTORY_SEPARATOR . self::TRANSLATIONS_FILENAME;
 
         $this->translations = json_decode(file_get_contents($path), true);
     }
