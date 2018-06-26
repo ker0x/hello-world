@@ -24,7 +24,7 @@
 
 # Hello World
 
-A PHP library to say Hello to the world
+A PHP library to say **Hello** to the world
 
 ## Installation
 

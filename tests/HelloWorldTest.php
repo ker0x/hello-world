@@ -40,6 +40,22 @@ class HelloWorldTest extends TestCase
         $helloWorld('cn');
     }
 
+    public function testWithUpperCase(): void
+    {
+        $helloWorld = $this->helloWorld;
+
+        $this->assertEquals('Hallo wereld', $helloWorld('NL'));
+    }
+
+    public function testWithAlpha3(): void
+    {
+        $helloWorld = $this->helloWorld;
+
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Only ISO 639-1 codes are accepted.');
+        $helloWorld('fra');
+    }
+
     public function tearDown(): void
     {
         unset($this->helloWorld);
