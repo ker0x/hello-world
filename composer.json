@@ -15,6 +15,10 @@
       "role": "Author"
     }
   ],
+  "support": {
+    "issues": "https://github.com/ker0x/hello-world/issues",
+    "source": "https://github.com/ker0x/hello-world"
+  },
   "require": {
     "php": ">=7.1.0"
   },
