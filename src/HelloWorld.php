@@ -38,27 +38,32 @@ class HelloWorld
     }
 
     /**
-     * @param null|string $lang
+     * @param null|string $alpha2
      *
      * @return string
      */
-    public function __invoke(?string $lang = 'en')
+    public function __invoke(?string $alpha2 = 'en')
     {
-        return $this->getTranslation($lang);
+        $alpha2 = mb_strtolower($alpha2);
+        if (!preg_match('/^[a-z]{2}$/', $alpha2)) {
+            throw new \InvalidArgumentException('Only ISO 639-1 codes are accepted.');
+        }
+
+        return $this->getTranslation($alpha2);
     }
 
     /**
-     * @param string $lang
+     * @param string $alpha2
      *
      * @throws \InvalidArgumentException
      *
      * @return string
      */
-    private function getTranslation(string $lang): string
+    private function getTranslation(string $alpha2): string
     {
-        $translation = $this->translations[$lang] ?? null;
+        $translation = $this->translations[$alpha2] ?? null;
         if ($translation === null) {
-            throw new \InvalidArgumentException("The translation for lang $lang does not exist.");
+            throw new \InvalidArgumentException("The translation for lang $alpha2 does not exist.");
         }
 
         /* @var string $translation */
