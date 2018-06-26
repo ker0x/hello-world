@@ -6,7 +6,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/7.1.18-cli-node-browsers
+      - image: circleci/php:7.1.18-cli-node-browsers
 
     working_directory: ~/hello-world
 
